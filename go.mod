@@ -1,3 +1,3 @@
 module go_ds_store
 
-go 1.14
+go 1.17

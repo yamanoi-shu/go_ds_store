@@ -1,7 +1,8 @@
-package main
+package file_runner
 
 import (
 	"fmt"
+	"go_ds_store/file_runner/repository"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -9,10 +10,10 @@ import (
 
 type FileRunner struct {
 	RootPath string
-	logger   *Logger
+	logger   repository.LoggerRepository
 }
 
-func NewFileRunner(rootPath string, logger *Logger) (*FileRunner, error) {
+func NewFileRunner(rootPath string, logger repository.LoggerRepository) (*FileRunner, error) {
 
 	fInfo, err := os.Stat(rootPath)
 
@@ -33,7 +34,7 @@ func NewFileRunner(rootPath string, logger *Logger) (*FileRunner, error) {
 }
 
 func (fr *FileRunner) DeleteAllDSStore() (err error) {
-	fr.logger.printStartLog(fr.RootPath)
+	fr.logger.PrintStartLog(fr.RootPath)
 
 	err = filepath.Walk(fr.RootPath, func(path string, info fs.FileInfo, err error) error {
 
@@ -41,15 +42,15 @@ func (fr *FileRunner) DeleteAllDSStore() (err error) {
 			return err
 		}
 		if info.IsDir() {
-			fr.logger.printDirLog(path)
+			fr.logger.PrintDirLog(path)
 			return nil
 		}
 		if info.Name() == ".DS_Store" {
-			fr.logger.printDSStoreLog(path)
+			fr.logger.PrintTargetFileLog(path)
 			err = os.Remove(path)
 			return err
 		}
-		fr.logger.printNormFileLog(path)
+		fr.logger.PrintNormFileLog(path)
 		return nil
 	})
 

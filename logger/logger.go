@@ -1,4 +1,4 @@
-package main
+package logger
 
 import (
 	"fmt"
@@ -10,21 +10,21 @@ type Logger struct{}
 func NewLogger() *Logger {
 	return &Logger{}
 }
-func (*Logger) printStartLog(rootPath string) {
+func (*Logger) PrintStartLog(rootPath string) {
 	fmt.Println()
 	message := generateMessage("start walking path: %s and delete .DS_Store .....", rootPath)
 	printLog(message)
 }
 
-func (*Logger) printDirLog(filePath string) {
+func (*Logger) PrintDirLog(filePath string) {
 	message := generateMessage("path: [%s] (dir).....skip", filePath)
 	printLog(message)
 }
-func (*Logger) printNormFileLog(filePath string) {
+func (*Logger) PrintNormFileLog(filePath string) {
 	message := generateMessage("path: [%s] .....skip", filePath)
 	printLog(message)
 }
-func (*Logger) printDSStoreLog(filePath string) {
+func (*Logger) PrintTargetFileLog(filePath string) {
 	message := generateMessage("path: [%s] .....delete", filePath)
 	printLog(message)
 }

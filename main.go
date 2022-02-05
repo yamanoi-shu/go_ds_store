@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	"go_ds_store/file_runner"
+	"go_ds_store/logger"
 	"log"
 )
 
@@ -16,8 +18,8 @@ func main() {
 
 	filePath := args[0]
 
-	logger := NewLogger()
-	fr, err := NewFileRunner(filePath, logger)
+	logger := logger.NewLogger()
+	fr, err := file_runner.NewFileRunner(filePath, logger)
 	if err != nil {
 		log.Fatal(err)
 	}

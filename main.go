@@ -22,6 +22,7 @@ func main() {
 		logFile, _ := os.Open("test.txt")
 		multiLog := io.MultiWriter(os.Stdout, logFile)
 		log.SetOutput(multiLog)
+		log.SetFlags(log.Flags() &^ log.LstdFlags)
 	}
 
 	filePath := args[0]

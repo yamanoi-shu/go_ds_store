@@ -1,21 +1,10 @@
-
 start walking path: [/Users/yamanoishu/work/go_ds_store/test] and delete .DS_Store .....
-
 path: [[/Users/yamanoishu/work/go_ds_store/test]] (dir).....skip
-
 path: [[/Users/yamanoishu/work/go_ds_store/test/.DS_Store]] .....delete
-
 path: [[/Users/yamanoishu/work/go_ds_store/test/test.txt]] .....skip
-
 path: [[/Users/yamanoishu/work/go_ds_store/test/test1]] (dir).....skip
-
 path: [[/Users/yamanoishu/work/go_ds_store/test/test1/.DS_Store]] .....delete
-
 path: [[/Users/yamanoishu/work/go_ds_store/test/test2]] (dir).....skip
-
 path: [[/Users/yamanoishu/work/go_ds_store/test/test2/.DS_Store]] (dir).....skip
-
 path: [[/Users/yamanoishu/work/go_ds_store/test/test2/.DS_Store/.DS_Store]] .....delete
-
 path: [[/Users/yamanoishu/work/go_ds_store/test/test2/test.txt]] .....skip
-

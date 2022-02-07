@@ -46,7 +46,7 @@ export LOG_FILE="true"
 
 generateFiles
 
-./app ${PWD}/test > test_actual_log.txt
+./app ${PWD}/test
 
 diff ./test_actual_log.txt testdata/test_expect_log.txt
 

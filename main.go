@@ -4,8 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"go_ds_store/file_runner"
+	"go_ds_store/file_runner/repository"
 	"go_ds_store/logger"
-	"io"
 	"log"
 	"os"
 )
@@ -18,17 +18,17 @@ func main() {
 		return
 	}
 
+	var logHandler repository.LoggerRepository
+
 	if os.Getenv("LOG_FILE") == "true" {
-		logFile, _ := os.Open("test.txt")
-		multiLog := io.MultiWriter(os.Stdout, logFile)
-		log.SetOutput(multiLog)
-		log.SetFlags(log.Flags() &^ log.LstdFlags)
+		logHandler = logger.NewTestLogger("test_actual_log.txt")
+	} else {
+		logHandler = logger.NewLogger()
 	}
 
 	filePath := args[0]
 
-	logger := logger.NewLogger()
-	fr, err := file_runner.NewFileRunner(filePath, logger)
+	fr, err := file_runner.NewFileRunner(filePath, logHandler)
 	if err != nil {
 		log.Fatal(err)
 		return

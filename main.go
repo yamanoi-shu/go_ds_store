@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"go_ds_store/file_runner"
 	"go_ds_store/logger"
+	"io"
 	"log"
+	"os"
 )
 
 func main() {
@@ -16,12 +18,19 @@ func main() {
 		return
 	}
 
+	if os.Getenv("LOG_FILE") == "true" {
+		logFile, _ := os.Open("test.txt")
+		multiLog := io.MultiWriter(os.Stdout, logFile)
+		log.SetOutput(multiLog)
+	}
+
 	filePath := args[0]
 
 	logger := logger.NewLogger()
 	fr, err := file_runner.NewFileRunner(filePath, logger)
 	if err != nil {
 		log.Fatal(err)
+		return
 	}
 
 	fr.DeleteAllDSStore()

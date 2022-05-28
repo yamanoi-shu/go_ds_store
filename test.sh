@@ -48,7 +48,9 @@ generateFiles
 
 ./app ${PWD}/test
 
-diff ./test_actual_log.txt testdata/test_expect_log.txt
+sed -e "s|!pwd!|$PWD|g" ./testdata/test_expect_log_template.txt > ./test_expect_log.txt
+
+diff ./test_actual_log.txt ./test_expect_log.txt
 
 if [ $? -eq 1 ]; then
     echo "Faild....."
@@ -61,4 +63,5 @@ fi
 rm -rf test
 
 rm test_actual_log.txt
+rm test_expect_log.txt
 

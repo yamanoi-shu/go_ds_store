@@ -1,0 +1,10 @@
+start walking path: [!pwd!/test] and delete .DS_Store .....
+path: [[!pwd!/test]] (dir).....skip
+path: [[!pwd!/test/.DS_Store]] .....delete
+path: [[!pwd!/test/test.txt]] .....skip
+path: [[!pwd!/test/test1]] (dir).....skip
+path: [[!pwd!/test/test1/.DS_Store]] .....delete
+path: [[!pwd!/test/test2]] (dir).....skip
+path: [[!pwd!/test/test2/.DS_Store]] (dir).....skip
+path: [[!pwd!/test/test2/.DS_Store/.DS_Store]] .....delete
+path: [[!pwd!/test/test2/test.txt]] .....skip

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # - test/
 #   - test1/
@@ -9,7 +9,7 @@
 #       - .DS_Store/
 #           - .DS_Store
 
-function  generateFiles() {
+function generateFiles() {
     mkdir test
 
     cd test
@@ -61,3 +61,4 @@ fi
 rm -rf test
 
 rm test_actual_log.txt
+

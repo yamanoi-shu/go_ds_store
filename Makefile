@@ -7,4 +7,4 @@ test:
 	rm -f test_actual_log.txt
 	rm -rf test
 	go build -o app .
-	sh test.sh
+	bash test.sh

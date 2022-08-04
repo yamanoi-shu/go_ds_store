@@ -3,11 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go_ds_store/file_runner"
-	"go_ds_store/file_runner/repository"
-	"go_ds_store/logger"
 	"log"
 	"os"
+
+	"github.com/yamanoi-shu/go_ds_store/file_runner"
+	"github.com/yamanoi-shu/go_ds_store/file_runner/repository"
+	"github.com/yamanoi-shu/go_ds_store/logger"
 )
 
 func main() {

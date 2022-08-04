@@ -2,10 +2,11 @@ package file_runner
 
 import (
 	"fmt"
-	"go_ds_store/file_runner/repository"
 	"io/fs"
 	"os"
 	"path/filepath"
+
+	"github.com/yamanoi-shu/go_ds_store/file_runner/repository"
 )
 
 type FileRunner struct {
